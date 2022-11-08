@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 
 const Home = React.lazy(() => import('../../../features/home/page/home.page'));
@@ -8,32 +8,13 @@ const About = React.lazy(
 
 export function AppRoutes() {
     return (
-        <Routes>
-            <Route
-                path="home"
-                element={
-                    <React.Suspense>
-                        <Home></Home>
-                    </React.Suspense>
-                }
-            ></Route>
-            <Route
-                path="about"
-                element={
-                    <React.Suspense>
-                        <About></About>
-                    </React.Suspense>
-                }
-            ></Route>
-            <Route
-                path=""
-                element={
-                    <React.Suspense>
-                        <Home></Home>
-                    </React.Suspense>
-                }
-            ></Route>
-            <Route path="*" element={<Navigate replace to="" />}></Route>
-        </Routes>
+        <Suspense>
+            <Routes>
+                <Route path="home" element={<Home></Home>}></Route>
+                <Route path="about" element={<About></About>}></Route>
+                <Route path="" element={<Home></Home>}></Route>
+                <Route path="*" element={<Navigate replace to="" />}></Route>
+            </Routes>
+        </Suspense>
     );
 }
