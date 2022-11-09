@@ -12,7 +12,7 @@ export function Sample() {
         dispatcher(
             ac.loadActionCreate([
                 {
-                    id: 1,
+                    id: '1',
                     title: 'terminar redux',
                     responsible: 'pepe',
                     isComplete: false,
@@ -25,7 +25,7 @@ export function Sample() {
         <>
             {tasks.map((item) => (
                 <>
-                    <p>Task: {item.title}</p>
+                    <p key={item.id}>Task: {item.title}</p>
                     <p>Responsible: {item.responsible}</p>
                 </>
             ))}

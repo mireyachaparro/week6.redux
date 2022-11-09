@@ -5,7 +5,7 @@ export type ProtoTask = {
 };
 
 export type Task = {
-    id: number;
+    id: string;
     title: string;
     responsible: string;
     isComplete: boolean;

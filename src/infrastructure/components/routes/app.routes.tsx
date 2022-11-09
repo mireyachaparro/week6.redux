@@ -1,10 +1,8 @@
-import React, { Suspense } from 'react';
+import React, { lazy, Suspense } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 
-const Home = React.lazy(() => import('../../../features/home/page/home.page'));
-const About = React.lazy(
-    () => import('../../../features/about/page/about.page')
-);
+const Home = lazy(() => import('../../../features/home/page/home.page'));
+const About = lazy(() => import('../../../features/about/page/about.page'));
 
 export function AppRoutes() {
     return (
